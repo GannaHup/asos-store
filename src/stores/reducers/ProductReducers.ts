@@ -4,7 +4,7 @@ const initialState = {
   isLoading: false,
 };
 
-export default function GoogleSearchReducers(
+export default function ProductsReducers(
   state = initialState,
   action: any
 ) {

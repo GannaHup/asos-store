@@ -1,9 +1,15 @@
 import axios from "axios";
 
 const baseURL = process.env.NEXT_PUBLIC_API_URL
+const apiKey = process.env.NEXT_PUBLIC_X_RAPID_API_KEY
+const apiHost = process.env.NEXT_PUBLIC_RAPID_API_HOST
 
 const axiosApi = axios.create({
-  baseURL: baseURL
+  baseURL: baseURL,
+  headers: {
+    'X-RapidAPI-Key': apiKey,
+    'X-RapidAPI-Host': apiHost
+  }
 })
 
 axiosApi.interceptors.request.use(

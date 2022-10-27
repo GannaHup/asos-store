@@ -1,0 +1,73 @@
+@import '../../../assets/styles/colors';
+
+.wrapper-filter {
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  background: $winters-day;
+  padding: 16px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 1s ease;
+  opacity: 1;
+  z-index: 0;
+
+  &.hide {
+    display: flex;
+    top: 50px;
+    z-index: -1;
+    opacity: 0;
+    transition: all 1s ease;
+  }
+
+  .section-title-filter {
+    text-align: center;
+    margin-bottom: 24px;
+
+    span {
+      color: $ash-to-ash;
+      font-size: 18px;
+    }
+  }
+
+  .section-field-filter {
+    width: 100%;
+    max-width: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    .field-input-label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      span {
+        font-size: 14px;
+        color: $ash-to-ash;
+      }
+
+      .filter-input {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 280px;
+        border: none;
+        border-radius: 8px;
+
+        input {
+          border-radius: 8px;
+          border: 1px solid $gray;
+
+          &:focus {
+            border: 1px solid $glitter-lake;
+            box-shadow: 1px -1px 61px -9px #47b5ff8c;
+            -webkit-box-shadow: 1px -1px 61px -9px rgba(71,181,255,0.55);
+            -moz-box-shadow: 1px -1px 61px -9px rgba(71,181,255,0.55);
+          }
+        }
+      }
+    }
+  }
+}

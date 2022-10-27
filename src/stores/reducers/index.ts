@@ -1,9 +1,9 @@
 import { CombinedState, combineReducers } from "redux"
-import GoogleSearchReducers from '@/stores/reducers/GoogleSearchReducers'
+import ProductReducers from '@/stores/reducers/ProductReducers'
 import { ReducersAllTypes } from "@/types/store/index"
 
 const appReducers = combineReducers<ReducersAllTypes>({
-  google: GoogleSearchReducers
+  products: ProductReducers
 })
 
 const rootReducer = (state: CombinedState<ReducersAllTypes> | undefined, action: any) => {

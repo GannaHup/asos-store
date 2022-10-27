@@ -1,42 +1,77 @@
-import React, { useState } from "react";
-import Image from 'next/image'
-import AsosLogo from '@/assets/images/asos-logo.png'
-import SearchInput from "@/components/molecules/SearchInput";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Navbar from "@/components/molecules/Navbar";
+import FilterSearch from "@/components/molecules/FilterSearch";
+import { Options } from "@/types/components/Dropdown.type"
+import { OPTIONS_SORT_PRODUCT } from "@/constants/product";
+import { HomeProps } from "@/types/pages/home";
 import "./styles.scss";
-import Icon from "@/assets/Icons";
 
-const HomeScreen = () => {
-  const [search, setSearch] = useState({
-    q: ''
+const HomeScreen = (props: HomeProps) => {
+  const { keyword, priceMin, priceMax, sort } = props
+  const router = useRouter();
+  const [filter, setSearch] = useState({
+    q: keyword || '',
+    store: 'US',
+    priceMin: priceMin,
+    priceMax: priceMax,
+    sort: OPTIONS_SORT_PRODUCT[0]
   })
+  const [showFilter, setShowFilter] = useState(false)
 
-  const onSearch = (keyword: string) => {
-    setSearch(prevState => ({ ...prevState, q: keyword }))
-  } 
+  const onSearch = (keyword: string | number) => {
+    setSearch(prevState => ({ ...prevState, q: (keyword as string) }))
+  }
+
+  const onChangeInput = (value: string | number, key: string) => {
+    setSearch(prevState => ({ ...prevState, [key]: value }))
+  }
+
+  const onToggleFilter = () => {
+    setShowFilter(prevState => !prevState)
+  }
+
+  const onSearchProduct = () => {
+    const sortBy = filter.sort.value || 'freshness'
+    router.replace({
+      query: {
+        ...filter,
+        sort: sortBy
+      }
+    })
+  }
+
+  const onSortProduct = (selected: Options) => {
+    setSearch(prevState => ({ ...prevState, sort: selected }))
+  }
+
+  useEffect(() => {
+    if (sort) {
+      const selectedSort = OPTIONS_SORT_PRODUCT.find(option => option.value === sort) || OPTIONS_SORT_PRODUCT[0]
+      setSearch(prevState => ({ ...prevState, sort: selectedSort }))
+    }
+  }, [sort])
 
   return (
     <div className="wrapper-home">
       {/* Navbar */}
-      <div className="navbar">
-        <div className="logo">
-          <Image
-            src={AsosLogo}
-            alt="Picture of the author"
-            width={130}
-          />
-        </div>
-        <div className="section-search">
-          <SearchInput
-            value={search.q}
-            placeholder="Search..."
-            onInput={onSearch}
-          />
-          <div className="filter-button">
-            <Icon name="filter" color="white" width={30} height={30} />
-            <span>Filter</span>
-          </div>
-        </div>
-      </div>
+      <Navbar
+        value={filter.q}
+        placeholder="Search..."
+        onInput={onSearch}
+        onFilter={onToggleFilter}
+        onSearch={onSearchProduct}
+      />
+
+      {/* Filter */}
+      <FilterSearch
+        show={showFilter}
+        priceMin={filter.priceMin}
+        priceMax={filter.priceMax}
+        sort={filter.sort}
+        onChangeInput={onChangeInput}
+        onSortProduct={onSortProduct}
+      />
     </div>
   )
 }

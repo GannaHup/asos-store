@@ -1,7 +1,7 @@
-export interface TGoogleSearchtState {
+export interface TProductsState {
   isLoading: boolean
 }
 
 export interface ReducersAllTypes  {
-  google: TGoogleSearchtState | any
+  products: TProductsState | any
 }

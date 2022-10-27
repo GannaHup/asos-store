@@ -1,0 +1,65 @@
+@import '../../../assets/styles/colors';
+
+.wrapper-dropdown-select {
+  width: 280%;
+  position: relative;
+
+  .dropdown-select {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid $gray;
+    font-size: 14px;
+    padding: 4px 8px;
+    cursor: pointer;
+    background-color: #fff;
+
+    .chevron-dropdown-select {
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 500ms;
+    }
+
+    &.active {
+      border-bottom: 0px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+
+      .chevron-dropdown-select {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 500ms;
+        transform: rotate(180deg)
+      }
+    }
+  }
+
+  .wrapper-options {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $gray;
+    border-bottom-right-radius: 0.375;
+    border-bottom-left-radius: 0.375;
+
+    .option {
+      font-size: 14px;
+      padding: 4px 8px;
+      cursor: pointer;
+      background-color: $white;
+      color: $ash-to-ash;
+
+      &:hover {
+        background-color: $winters-day;
+      }
+
+      &.active {
+        color: $lazurite-blue;
+      }
+    }
+  }
+}

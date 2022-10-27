@@ -3,7 +3,7 @@ import { TextInputProps } from "@/types/components/TextInput.type";
 import './style.scss'
 
 const TextInput = (props: TextInputProps) => {
-  const { canEnter, value, customClass, placeholder, onInput, onKeyDown } = props
+  const { canEnter, value, customClass, placeholder, type, onInput, onKeyDown } = props
   const [wrapperClass, setWrapperClass] = useState('wrapper-text-input')
 
   const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ const TextInput = (props: TextInputProps) => {
     <div className={wrapperClass}>
       <input
         value={value}
-        type="text"
+        type={type}
         className="input"
         placeholder={placeholder}
         onChange={onChangeInput}
@@ -40,7 +40,8 @@ const TextInput = (props: TextInputProps) => {
 TextInput.defaultProps = {
   canEnter: false,
   customClass: '',
-  placeholder: ''
+  placeholder: '',
+  type: 'text'
 }
 
 export default TextInput

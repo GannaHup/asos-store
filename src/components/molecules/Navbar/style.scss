@@ -1,0 +1,71 @@
+@import '../../../assets/styles/colors';
+
+.navbar {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $rhapsody-in-blue;
+  padding: 16px 40px;
+
+  .section-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+
+    .wrapper-search-input {
+      border: 1px solid red;
+      width: 400px;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid gray;
+      border-radius: 8px;
+      overflow: hidden;
+      background: $white;
+      padding: 4px 10px 4px 0;
+
+      .search-input {
+        width: 100%;
+        border-radius: 0px;
+        border: none;
+
+        input {
+          background: transparent;
+        }
+      }
+
+      .icon-search {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0.5;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .filter-button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $lazurite-blue;
+      }
+
+      span {
+        color: $white;
+      }
+    }
+  }
+}

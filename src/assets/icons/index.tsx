@@ -3,12 +3,14 @@
 import React from 'react'
 
 // Common
+import ChevronIcon from './common/icon_chevron'
 import FilterIcon from './common/icon_filter'
 import SearchIcon from './common/icon_search'
 
 const iconTypes: any = {
+  chevron: ChevronIcon,
   filter: FilterIcon,
-  search: SearchIcon
+  search: SearchIcon,
 }
 
 interface Props {

@@ -1,23 +1,42 @@
-import React, { useEffect } from "react"
+import React from "react"
 import HomeScreen from "@/screens/HomeScreen/index"
-import { useAppDispatch } from "@/stores"
-import { searchContent } from "@/stores/actions/GoogleSearchAction"
-import { PageProps, ServerSidePropsContext } from "@/types/pages"
+import { getProductList } from "@/services/ProductApi"
+import { HomeProps } from "@/types/pages/home"
+import { PageProps, ServerSidePropsContext } from "@/types/pages/ssr"
 
-export default function HomePage(props: any) {
+export default function HomePage(props: HomeProps) {
+  console.log(props)
   return (
-    <HomeScreen />
+    <HomeScreen {...props} />
   )
 }
 
 export async function getServerSideProps(
   context: ServerSidePropsContext
-): Promise<PageProps<any>> {
-  const { q } = context.query
+): Promise<PageProps<HomeProps>> {
+  const {
+    q = '',
+    store,
+    priceMin = 0,
+    priceMax = 1000,
+    sort = 'freshness'
+  } = context.query
+
+  const productList = await getProductList({
+    q: q || '',
+    store,
+    priceMin,
+    priceMax,
+    sort
+  })
 
   return {
     props: {
-      keyword: q || ''
+      keyword: q || '',
+      priceMin: priceMin,
+      priceMax: priceMax,
+      sort: sort,
+      productList: productList
     },
   };
 }

@@ -1,7 +1,15 @@
 import axiosApi from "@/services/index"
 import { serializeQuery } from "@/utils/serializeQuery"
+import { ProductMapper } from '@/data/mappers/ProductMapper'
 
-export const getProductList = (params: any) => {
-  axiosApi
+const mapper = new ProductMapper()
+
+export const getProductList = async (params: any) => {
+  return await axiosApi
     .get(`/products/v2/list?${serializeQuery(params)}`)
+    .then(res => {
+      const result = JSON.stringify(mapper.convertProductList(res))
+      return JSON.parse(result)
+    })
+    .catch(err => console.log(err))
 }
