@@ -1,0 +1,37 @@
+@import '../../assets/styles/colors';
+
+.wrapper-home {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $rhapsody-in-blue;
+    padding: 16px 40px;
+
+    .section-search {
+      width: 500px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .filter-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $lazurite-blue;
+        }
+
+        span {
+          color: $white;
+        }
+      }
+    }
+  }
+}
