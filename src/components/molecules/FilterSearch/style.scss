@@ -2,9 +2,10 @@
 
 .wrapper-filter {
   position: absolute;
-  top: 90px;
-  width: 100%;
-  background: $winters-day;
+  top: 0px;
+  right: 0;
+  left: 0;
+  background-color: $winters-day;
   padding: 16px 40px;
   display: flex;
   flex-direction: column;
@@ -14,8 +15,7 @@
   z-index: 0;
 
   &.hide {
-    display: flex;
-    top: 50px;
+    top: -50px;
     z-index: -1;
     opacity: 0;
     transition: all 1s ease;

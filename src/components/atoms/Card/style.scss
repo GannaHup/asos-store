@@ -1,0 +1,47 @@
+@import '../../../assets/styles/colors';
+
+.card {
+  padding: 10px;
+  max-width: max-content;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 800ms;
+
+  &:hover {
+    transform: scale(1.05);
+    border-radius: 10px;
+    box-shadow: 1px -1px 61px -9px #438fc28c;
+    -webkit-box-shadow: 1px -1px 61px -9px #438fc28c;
+    -moz-box-shadow: 1px -1px 61px -9px #438fc28c;
+  }
+
+  .info-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .info-price {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .old-price {
+        text-decoration: line-through;
+        color: $lazurite-blue;
+      }
+
+      .new-price {
+        color: $rhapsody-in-blue;
+        font-weight: 500;
+        font-size: 18px;
+      }
+    }
+
+  }
+
+}

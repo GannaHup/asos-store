@@ -6,10 +6,13 @@ import { Options } from "@/types/components/Dropdown.type"
 import { OPTIONS_SORT_PRODUCT } from "@/constants/product";
 import { HomeProps } from "@/types/pages/home";
 import "./styles.scss";
+import Card from "@/components/atoms/Card";
+import { useAppSelector } from "@/stores";
 
 const HomeScreen = (props: HomeProps) => {
   const { keyword, priceMin, priceMax, sort } = props
   const router = useRouter();
+  const { isLoading } = useAppSelector(state => state.products)
   const [filter, setSearch] = useState({
     q: keyword || '',
     store: 'US',
@@ -52,6 +55,11 @@ const HomeScreen = (props: HomeProps) => {
     }
   }, [sort])
 
+  useEffect(() => {
+    // dispatch(setLoading(true))
+    console.log('isLoading', isLoading)
+  }, [])
+
   return (
     <div className="wrapper-home">
       {/* Navbar */}
@@ -72,6 +80,19 @@ const HomeScreen = (props: HomeProps) => {
         onChangeInput={onChangeInput}
         onSortProduct={onSortProduct}
       />
+
+      {isLoading ? (
+        <div style={{ marginTop: 100 }}>Loading...</div>
+      ) : (
+        <div className="section-product-list">
+          <div className="wrapper-product-list">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

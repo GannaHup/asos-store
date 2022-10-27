@@ -2,6 +2,9 @@
 const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ['images.asos-media.com']
+  },
   swcMinify: true,
   // disable css-modules component styling
   webpack(config) {

@@ -1,0 +1,21 @@
+@import '../../assets/styles/colors';
+
+.wrapper-home {
+  position: relative;
+  width: 100%;
+
+  .section-product-list {
+    margin-top: 90px;
+    padding-top: 160px;
+    display: flex;
+    justify-content: center;
+
+    .wrapper-product-list {
+      width: 100%;
+      max-width: 1500px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+  }
+}

@@ -1,15 +1,17 @@
 @import '../../../assets/styles/colors';
 
 .navbar {
-  position: fixed;
-  z-index: 1;
   width: 100%;
+  height: 90px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background-color: $rhapsody-in-blue;
   padding: 16px 40px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 
   .section-search {
     display: flex;

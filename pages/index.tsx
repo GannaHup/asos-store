@@ -1,5 +1,5 @@
 import React from "react"
-import HomeScreen from "@/screens/HomeScreen/index"
+import HomeScreen from "@/screens/Home/index"
 import { getProductList } from "@/services/ProductApi"
 import { HomeProps } from "@/types/pages/home"
 import { PageProps, ServerSidePropsContext } from "@/types/pages/ssr"
