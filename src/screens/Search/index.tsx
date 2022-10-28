@@ -86,13 +86,13 @@ const SearchScreen = (props: HomeProps) => {
         onSortProduct={onSortProduct}
       />
 
-      {!isLoading && (
+      {isLoading && (
         <div className="loading-state">
           <Icon name="loading-bubble" />
         </div>
       )}
 
-      {isLoading && dataProducts && dataProducts.products.length > 0 && (
+      {!isLoading && dataProducts && dataProducts.products.length > 0 && (
         <div className="section-product-list">
           <div className="wrapper-product-list">
             {dataProducts.products?.map((product: Product, idx: number) => {
@@ -102,7 +102,7 @@ const SearchScreen = (props: HomeProps) => {
         </div>
       )}
 
-      {isLoading && dataProducts && dataProducts.products.length === 0 && (
+      {!isLoading && dataProducts && dataProducts.products.length === 0 && (
         <div className="empty-state">
           <h2 className="text-empty-state">
             Result for <span className="keyword-empty-state">{keyword}</span>{" "}
