@@ -1,13 +1,13 @@
 import React, { useEffect } from "react"
 import SearchScreen from "@/screens/Search/index"
 import { getProductList } from "@/services/ProductApi"
-import { HomeProps } from "@/types/pages/home"
+import { SearchProps } from "@/types/pages/search"
 import { PageProps, ServerSidePropsContext } from "@/types/pages/ssr"
 import { useAppDispatch } from "@/stores"
 import { setProductList } from "@/stores/actions/ProductAction"
 import { ProductList } from "@/data/entities/Product"
 
-export default function HomePage(props: HomeProps) {
+export default function SearchPage(props: SearchProps) {
   const { productList, keyword, priceMin, priceMax, sort } = props
   const dispatch = useAppDispatch()
 
@@ -27,7 +27,7 @@ export default function HomePage(props: HomeProps) {
 
 export async function getServerSideProps(
   context: ServerSidePropsContext
-): Promise<PageProps<HomeProps>> {
+): Promise<PageProps<SearchProps>> {
   const {
     q,
     store,

@@ -1,6 +1,6 @@
 import { ProductList } from "@/data/entities/Product"
 
-export interface HomeProps {
+export interface SearchProps {
   keyword: string
   priceMin: number
   priceMax: number

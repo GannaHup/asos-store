@@ -1,10 +1,21 @@
 import React from "react";
 import Image from "next/image";
+import Icon from "@/assets/icons";
 import IllShopping from '@/assets/svg/ill_shopping.svg'
 import AsosLogo from '@/assets/images/asos-simple-logo.png'
+import { useAppSelector } from "@/stores";
 import "./style.scss";
 
 const HomeScreen = () => {
+  const { isLoading } = useAppSelector(state => state.products)
+
+  if (isLoading) {
+    return (
+      <div className="loading-state">
+        <Icon name="loading-bubble" />
+      </div>
+    )
+  }
   return (
     <div className="wrapper-home">
       <div className="content-home">

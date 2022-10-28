@@ -1,19 +1,22 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Icon from "@/assets/icons";
 import Card from "@/components/atoms/Card";
 import { Product } from "@/data/entities/Product";
 import { useAppSelector } from "@/stores";
-import { HomeProps } from "@/types/pages/home";
+import { SearchProps } from "@/types/pages/search";
 import IllNotFound from "@/assets/svg/ill_not_found.svg";
 import "./style.scss";
 
-const SearchScreen = (props: HomeProps) => {
+const SearchScreen = (props: SearchProps) => {
   const { keyword } = props;
+  const router = useRouter()
   const { isLoading, dataProducts } = useAppSelector((state) => state.products);
 
   const onSeeDetail = (id: number) => {
-    console.log(id)
+    console.log("PRODUCT ID", id)
+    router.push(`/product/${id}`)
   }
 
   return (
@@ -37,7 +40,7 @@ const SearchScreen = (props: HomeProps) => {
       {!isLoading && dataProducts && dataProducts.products.length === 0 && (
         <div className="empty-state">
           <h2 className="text-empty-state">
-            Result for <span className="keyword-empty-state">{keyword}</span> not found
+            Search result for <span className="keyword-empty-state">{keyword}</span> not found
           </h2>
           <Image
             src={IllNotFound}

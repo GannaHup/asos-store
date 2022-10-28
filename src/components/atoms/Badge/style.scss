@@ -1,0 +1,13 @@
+@import '../../../assets/styles/colors';
+
+.badge {
+  border: 1px solid $sea-goddess;
+  background-color: $lake-thun-3;
+  width: max-content;
+  padding: 4px 16px;
+  border-radius: 100px;
+
+  .text-badge {
+    color: $sea-goddess;
+  }
+}

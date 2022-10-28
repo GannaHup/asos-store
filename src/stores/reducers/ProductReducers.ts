@@ -1,17 +1,19 @@
-import { SET_LOADING, SET_PRODUCT_LIST } from "@/constants/actions-store";
-import { ProductList } from "@/data/entities/Product";
 import { AnyAction } from "redux";
+import { SET_LOADING, SET_PRODUCT_LIST, SET_PRODUCT_DETAIL } from "@/constants/actions-store";
+import { ProductList } from "@/data/entities/Product";
+import { ProductDetail } from "@/data/entities/ProductDetail";
 
 const initialState = {
   isLoading: true,
-  dataProducts: new ProductList()
+  dataProducts: new ProductList(),
+  dataProductDetail: new ProductDetail()
 };
 
 export default function ProductsReducers(
   state = initialState,
   action: AnyAction
 ) {
-  const { type, loading, products } = action;
+  const { type, loading, products, productDetail } = action;
 
   switch (type) {
     case SET_LOADING:
@@ -21,10 +23,18 @@ export default function ProductsReducers(
       };
 
     case SET_PRODUCT_LIST:
+      console.log("LIST", products)
       return {
         ...state,
         isLoading: false,
         dataProducts: products
+      }
+
+    case SET_PRODUCT_DETAIL:
+      console.log("DETAIL")
+      return {
+        ...state,
+        dataProductDetail: productDetail
       }
 
     default:

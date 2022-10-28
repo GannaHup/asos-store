@@ -7,12 +7,14 @@ import ChevronIcon from './common/icon_chevron'
 import FilterIcon from './common/icon_filter'
 import LoadingBubbleIcon from './common/icon_loading_bubble'
 import SearchIcon from './common/icon_search'
+import TagIcon from './common/icon_tag'
 
 const iconTypes: any = {
   chevron: ChevronIcon,
   filter: FilterIcon,
   'loading-bubble': LoadingBubbleIcon,
-  search: SearchIcon
+  search: SearchIcon,
+  tag: TagIcon
 }
 
 interface Props {

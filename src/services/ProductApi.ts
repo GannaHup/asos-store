@@ -13,3 +13,13 @@ export const getProductList = async (params: any) => {
     })
     .catch(err => console.log(err))
 }
+
+export const getProductDetail = async (params: any) => {
+  return await axiosApi
+    .get(`/products/v3/detail?${serializeQuery(params)}`)
+    .then(res => {
+      const result = JSON.stringify(mapper.convertProductDetail(res))
+      return JSON.parse(result)
+    })
+    .catch(err => console.log(err))
+}

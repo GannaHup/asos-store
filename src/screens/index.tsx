@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { AppProps } from "next/app"
 import { useRouter } from 'next/router';
 import FilterSearch from "@/components/molecules/FilterSearch";
@@ -9,6 +9,7 @@ import { setLoading } from '@/stores/actions/ProductAction';
 import { Options } from "@/types/components/Dropdown.type";
 import { serializeQuery } from "@/utils/serializeQuery";
 import './style.scss'
+import clearEmptyObject from "@/utils/clearEmptyObject";
 
 const MainPage = ({ Component, pageProps }: AppProps) => {
   const { keyword, priceMin, priceMax } = pageProps
@@ -36,13 +37,14 @@ const MainPage = ({ Component, pageProps }: AppProps) => {
     dispatch(setLoading(true));
     const sortBy = filter.sort.value || "freshness";
     if (pathname !== '/search') {
-      const params = { ...filter, sort: sortBy }
+      const params = clearEmptyObject({ ...filter, sort: sortBy })
       router.push(`/search?${serializeQuery(params)}`)
     } else {
       router.replace({
-        query: { ...filter, sort: sortBy },
+        query: clearEmptyObject({ ...filter, sort: sortBy }),
       });
     }
+    setShowFilter(false)
   };
 
   const onChangeInput = (value: string | number, key: string) => {
