@@ -29,6 +29,7 @@
 
         .option-image {
           object-fit: contain;
+          cursor: pointer;
 
           .image-variant {
             border-radius: 6px;
@@ -37,9 +38,17 @@
             transition-duration: 800ms;
             border: 1px solid none;
 
-            &.active {
+            &:hover {
               border: 1px solid $glitter-lake;
               transform: scale(1.1);
+              box-shadow: -1px -1px 400px -34px rgba(71,181,255,0.75);
+              -webkit-box-shadow: -1px -1px 400px -34px rgba(71,181,255,0.75);
+              -moz-box-shadow: -1px -1px 400px -34px rgba(71,181,255,0.75);
+            }
+
+            &.active {
+              border: 1px solid $glitter-lake;
+              transform: scale(1.2);
               box-shadow: -1px -1px 400px -34px rgba(71,181,255,0.75);
               -webkit-box-shadow: -1px -1px 400px -34px rgba(71,181,255,0.75);
               -moz-box-shadow: -1px -1px 400px -34px rgba(71,181,255,0.75);
