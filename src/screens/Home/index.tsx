@@ -62,6 +62,7 @@ const HomeScreen = () => {
         sort={filter.sort}
         onChangeInput={onChangeInput}
         onSortProduct={onSortProduct}
+        onSearch={onSearchProduct}
       />
 
       <div className="content-home">

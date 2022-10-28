@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Icon from "@/assets/icons";
 import Navbar from "@/components/molecules/Navbar";
 import FilterSearch from "@/components/molecules/FilterSearch";
 import Card from "@/components/atoms/Card";
@@ -12,7 +13,6 @@ import { Options } from "@/types/components/Dropdown.type";
 import { HomeProps } from "@/types/pages/home";
 import IllNotFound from "@/assets/svg/ill_not_found.svg";
 import "./style.scss";
-import Icon from "@/assets/icons";
 
 const SearchScreen = (props: HomeProps) => {
   const { keyword, priceMin, priceMax, sort } = props;
@@ -84,6 +84,7 @@ const SearchScreen = (props: HomeProps) => {
         sort={filter.sort}
         onChangeInput={onChangeInput}
         onSortProduct={onSortProduct}
+        onSearch={onSearchProduct}
       />
 
       {isLoading && (

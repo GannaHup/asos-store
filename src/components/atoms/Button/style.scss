@@ -1,0 +1,15 @@
+@import '../../../assets/styles/colors';
+
+.button {
+  border: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background-color: $sea-goddess;
+  color: $white;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $lazurite-blue;
+  }
+}
