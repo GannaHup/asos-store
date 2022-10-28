@@ -4,18 +4,20 @@ import { useRouter } from "next/router";
 import Icon from "@/assets/icons";
 import Card from "@/components/atoms/Card";
 import { Product } from "@/data/entities/Product";
-import { useAppSelector } from "@/stores";
+import { useAppDispatch, useAppSelector } from "@/stores";
 import { SearchProps } from "@/types/pages/search";
 import IllNotFound from "@/assets/svg/ill_not_found.svg";
 import "./style.scss";
+import { setLoading } from "@/stores/actions/ProductAction";
 
 const SearchScreen = (props: SearchProps) => {
   const { keyword } = props;
   const router = useRouter()
+  const dispatch = useAppDispatch()
   const { isLoading, dataProducts } = useAppSelector((state) => state.products);
 
   const onSeeDetail = (id: number) => {
-    console.log("PRODUCT ID", id)
+    dispatch(setLoading(true))
     router.push(`/product/${id}`)
   }
 

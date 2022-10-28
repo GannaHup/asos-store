@@ -14,15 +14,17 @@ const Card = (props: CardProps) => {
         width={313}
         height={400}
       />
-      <span className="name-card">{data.name}</span>
-      <div className="info-card">
-        <div className="info-price">
-          {data.price?.previous && (
-            <span className="old-price">{data.price?.previous}</span>
-          )}
-          <span className="new-price">{data.price?.current}</span>
+      <div className="wrapper-info-card">
+        <p className="name-card">{data.name}</p>
+        <div className="info-card">
+          <div className="info-price">
+            {data.price?.previous && (
+              <span className="old-price">{data.price?.previous}</span>
+            )}
+            <span className="new-price">{data.price?.current}</span>
+          </div>
+          <span className="brand-name">{data.brandName}</span>
         </div>
-        <span>{data.brandName}</span>
       </div>
     </div>
   );

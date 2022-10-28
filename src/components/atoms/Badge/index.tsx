@@ -1,7 +1,8 @@
 import React from "react"
+import { BadgeProps } from "@/types/components/Badge.type"
 import './style.scss'
 
-const Badge = (props: any) => {
+const Badge = (props: BadgeProps) => {
   const { text } = props
   return (
     <div className="badge">

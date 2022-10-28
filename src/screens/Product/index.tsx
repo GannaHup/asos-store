@@ -7,7 +7,7 @@ import { useAppSelector } from "@/stores";
 import "./style.scss";
 
 const ProductScreen = () => {
-  const { dataProductDetail } = useAppSelector((state) => state.products);
+  const { isLoading, dataProductDetail } = useAppSelector((state) => state.products);
   const [currentImage, setCurrentImage] = useState("");
 
   const textBadge = (variant: ProductVariant) => {
@@ -26,6 +26,13 @@ const ProductScreen = () => {
     }
   }, [dataProductDetail.images]);
 
+  if (isLoading) {
+    return (
+      <div className="loading-state">
+        <Icon name="loading-bubble" />
+      </div>
+    )
+  }
   return (
     <div className="wrapper-product-detail">
       <div className="content-product-detail">

@@ -23,7 +23,6 @@ export default function ProductsReducers(
       };
 
     case SET_PRODUCT_LIST:
-      console.log("LIST", products)
       return {
         ...state,
         isLoading: false,
@@ -31,9 +30,9 @@ export default function ProductsReducers(
       }
 
     case SET_PRODUCT_DETAIL:
-      console.log("DETAIL")
       return {
         ...state,
+        isLoading: false,
         dataProductDetail: productDetail
       }
 
