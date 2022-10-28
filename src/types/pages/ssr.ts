@@ -5,8 +5,14 @@ export interface ServerSidePropsContext {
   res: any;
 }
 
+export interface RedirectPageProps {
+  destination: string
+  permanent: boolean
+}
+
 export interface PageProps<Props> {
-  props: Props;
+  props?: Props;
+  redirect?: RedirectPageProps
 }
 
 export interface BasePageProps {

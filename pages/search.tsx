@@ -36,6 +36,15 @@ export async function getServerSideProps(
     sort = 'freshness'
   } = context.query
 
+  if (!store || !q) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
   const productList = await getProductList({
     q: q || '',
     store,
