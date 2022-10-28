@@ -4,9 +4,9 @@ import { CardProps } from "@/types/components/Card.type";
 import './style.scss'
 
 const Card = (props: CardProps) => {
-  const { data } = props
+  const { data, onClick } = props
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
       <Image
         id="image-card"
         src={`https://${data.imageUrl}`}
