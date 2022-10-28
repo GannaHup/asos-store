@@ -5,5 +5,5 @@ export interface HomeProps {
   priceMin: number
   priceMax: number
   sort: string
-  productList: ProductList
+  productList?: ProductList
 }

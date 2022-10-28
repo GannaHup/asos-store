@@ -5,12 +5,14 @@ import React from 'react'
 // Common
 import ChevronIcon from './common/icon_chevron'
 import FilterIcon from './common/icon_filter'
+import LoadingBubbleIcon from './common/icon_loading_bubble'
 import SearchIcon from './common/icon_search'
 
 const iconTypes: any = {
   chevron: ChevronIcon,
   filter: FilterIcon,
-  search: SearchIcon,
+  'loading-bubble': LoadingBubbleIcon,
+  search: SearchIcon
 }
 
 interface Props {

@@ -2,11 +2,11 @@
 
 .card {
   padding: 10px;
-  max-width: max-content;
+  max-width: 335px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 800ms;
@@ -17,6 +17,10 @@
     box-shadow: 1px -1px 61px -9px #438fc28c;
     -webkit-box-shadow: 1px -1px 61px -9px #438fc28c;
     -moz-box-shadow: 1px -1px 61px -9px #438fc28c;
+  }
+
+  .name-card {
+    color: $ash-to-ash;
   }
 
   .info-card {

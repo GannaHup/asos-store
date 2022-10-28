@@ -1,11 +1,10 @@
-import { Dispatch } from 'redux'
-import { SET_LOADING } from '@/constants/actions-store'
+import { SET_LOADING, SET_PRODUCT_LIST } from "@/constants/actions-store";
+import { ProductList } from "@/data/entities/Product";
 
-export function setLoading(bool: boolean) {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: SET_LOADING,
-      loading: bool
-    })
-  }
-}
+export const setLoading = (bool: boolean) => {
+  return { type: SET_LOADING, loading: bool };
+};
+
+export const setProductList = (data: ProductList) => {
+  return { type: SET_PRODUCT_LIST, products: data };
+};

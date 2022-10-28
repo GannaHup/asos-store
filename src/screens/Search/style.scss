@@ -1,0 +1,50 @@
+@import '../../assets/styles/colors';
+
+.wrapper-home {
+  position: relative;
+  width: 100%;
+
+  .loading-state {
+    margin-top: 90px;
+    padding-top: 200px;
+  }
+
+  .section-product-list {
+    margin-top: 90px;
+    padding-top: 160px;
+    display: flex;
+    justify-content: center;
+
+    .wrapper-product-list {
+      width: 100%;
+      max-width: 1500px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+  }
+
+  .empty-state {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 90px;
+    padding-top: 140px;
+
+    .text-empty-state {
+      font-weight: 400;
+      font-size: 20px;
+      color: $boat-anchor;
+
+      .keyword-empty-state {
+        font-weight: 600;
+        color: $lazurite-blue;
+      }
+    }
+
+    .illustration-not-found {
+      max-width: 600px;
+    }
+  }
+}

@@ -1,19 +1,19 @@
 import { AxiosResponse } from "axios";
-import { Product, ProductList, ProductPrice } from "@/data/entities/Product";
+import { Price, Product, ProductList, ProductPrice } from "@/data/entities/Product";
 
 export class ProductMapper {
   public convertProductList(result: AxiosResponse) {
     const { data } = result
     return new ProductList(
       data.itemCount,
-      data.products?.map((item: any) => {
+      data.products?.map((item: Product) => {
         return new Product(
           item.id,
           item.name,
           new ProductPrice(
-            item.price.current,
-            item.price.previous,
-            item.price.currency,
+            (<Price>item.price?.current).text,
+            (<Price>item.price?.previous).text,
+            item.price?.currency,
           ),
           item.colour,
           item.colourWayId,

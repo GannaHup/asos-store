@@ -1,1 +1,2 @@
 export const SET_LOADING = "SET_LOADING"
+export const SET_PRODUCT_LIST = "SET_PRODUCT_LIST"

@@ -1,11 +1,21 @@
+export class Price {
+  text?: string
+  value?: number
+
+  constructor(text?: string,value?: number) {
+    this.text = text
+    this.value = value
+  }
+}
+
 export class ProductPrice {
-  current?: number
-  previous?: number | null
+  current?: string
+  previous?: string | null
   currency?: string
 
   constructor(
-    current?: number,
-    previous?: number | null,
+    current?: string,
+    previous?: string | null,
     currency?: string
   ) {
     this.current = current
