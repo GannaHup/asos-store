@@ -5,9 +5,11 @@ import Icon from "@/assets/icons"
 import TextInput from "@/components/atoms/TextInput/TextInput"
 import { NavbarProps } from "@/types/components/Navbar.type"
 import './style.scss'
+import { useRouter } from "next/router"
 
 const Navbar = (props: NavbarProps) => {
   const { value, placeholder, onInput, onSearch, onFilter } = props
+  const router = useRouter()
 
   const onChangeInput = (value: string | number) => {
     if (onInput) onInput(value);
@@ -23,7 +25,7 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <div className="navbar">
-      <div className="logo">
+      <div className="logo" onClick={() => router.push('/')}>
         <Image
           src={AsosLogo}
           alt="Picture of the author"

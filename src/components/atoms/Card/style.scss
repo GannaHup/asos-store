@@ -39,24 +39,23 @@
       flex-direction: row;
       justify-content: space-between;
       margin-top: 10px;
-  
+
       .info-price {
         display: flex;
         flex-direction: column;
-        gap: 6px;
-  
+        gap: 4px;
+
         .old-price {
           text-decoration: line-through;
           color: $lazurite-blue;
         }
-  
+
         .new-price {
           color: $rhapsody-in-blue;
           font-weight: 500;
-          font-size: 18px;
+          font-size: 22px;
         }
       }
-  
     }
   }
 }
