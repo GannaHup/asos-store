@@ -1,34 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <a href="https://asos-next-store.netlify.app" target="_blank">
+    <img src="https://user-images.githubusercontent.com/86098273/198705692-a6b402c8-c48f-4871-bc55-a153e467ba03.png" alt="Logo" width="300">
+  </a>
+  <br />
+  <h3>ASOS</h3>
+  <br />
+  [<a href="https://asos-next-store.netlify.app" target="_blank">See Apps</a>]
+</div>
 
-## Getting Started
+<div style="margin-top: 40px;">
+  <h3>ASOS Store</h3>
+  <span style="font-size: 18px">Discover Fashion Online</span>
+  <p style="margin-top: 18px;">Discover the latest fashion trends with ASOS. Shop the new collection of clothing, footwear, accessories, beauty products and more. Order today from ASOS.</p>
+  <b>This project is used for case studies not for commercialization.</b>
+  <p>Where do I get the ASOS API? I got the API from the following link: <a href="https://rapidapi.com/apidojo/api/asos2">Asos API</a></p>
+</div>
+<br />
+<br />
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
+#### FOLDER STRUCTURE IN THIS PROJECT
+
+Contains information how this project conventions, pattern, and flows.
+
+Generally this project is divided to 2 layers: `pages`, `src`
+
+```
++ pages
++ src
+  + assets (Contains assets like icons, styles global & images)
+  + components (Contains low-level reusable component)
+    + atoms (Smallest component)
+    + molecules (A combination of several atomic components)
+  + constants (Defining data static)
+  + data
+    + entities
+    + mappers (Converting received data from external to be our class data type)
+  + screens (Contains UI of the page)
+  + services (Contains interceptors & Action API)
+  + stores (Store Redux)
+  + types (Contains type or interface for ui requirement)
+    + components
+    + pages
+    + store
+  + utils (Small function reusable)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Build with
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [TypeScript](https://www.typescriptlang.org/)
+- [NextJs v13](https://nextjs.org/)
+- [Redux](https://react-redux.js.org/)
+- [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+- [Axios](https://axios-http.com/docs/intro)
+- [SASS](https://sass-lang.com/)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Project setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone this repository with SSH
+```
+  $ git clone git@github.com:GannaHup/asos-store.git
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Before your run this project: install all packages needed
+```
+  $ yarn ci
+```
+3. Run this project with command:
+```
+  $ yarn dev
+```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Compiles and minifies for production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+yarn run build
+
+or
+
+yarn build
+```
