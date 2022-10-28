@@ -12,7 +12,7 @@ import './style.scss'
 import clearEmptyObject from "@/utils/clearEmptyObject";
 
 const MainPage = ({ Component, pageProps }: AppProps) => {
-  const { keyword, priceMin, priceMax } = pageProps
+  const { keyword, priceMin, priceMax, page } = pageProps
   const router = useRouter();
   const { pathname } = router
   const dispatch = useAppDispatch();
@@ -22,6 +22,7 @@ const MainPage = ({ Component, pageProps }: AppProps) => {
     priceMin: priceMin,
     priceMax: priceMax,
     sort: OPTIONS_SORT_PRODUCT[0],
+    page: page || 1
   });
   const [showFilter, setShowFilter] = useState(false);
 

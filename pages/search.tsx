@@ -8,7 +8,7 @@ import { setProductList } from "@/stores/actions/ProductAction"
 import { ProductList } from "@/data/entities/Product"
 
 export default function SearchPage(props: SearchProps) {
-  const { productList, keyword, priceMin, priceMax, sort } = props
+  const { productList, keyword, priceMin, priceMax, sort, store, page } = props
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -17,10 +17,12 @@ export default function SearchPage(props: SearchProps) {
 
   return (
     <SearchScreen
+      store={store}
       keyword={keyword}
       priceMin={priceMin}
       priceMax={priceMax}
       sort={sort}
+      page={page}
     />
   )
 }
@@ -30,6 +32,7 @@ export async function getServerSideProps(
 ): Promise<PageProps<SearchProps>> {
   const {
     q,
+    page = 1,
     store,
     priceMin = 0,
     priceMax = 1000,
@@ -50,7 +53,8 @@ export async function getServerSideProps(
     store,
     priceMin,
     priceMax,
-    sort
+    sort,
+    page: page || 1
   })
 
   return {
@@ -58,7 +62,9 @@ export async function getServerSideProps(
       keyword: q || '',
       priceMin: priceMin,
       priceMax: priceMax,
+      store: store,
       sort: sort,
+      page: page || 1,
       productList: productList
     },
   };

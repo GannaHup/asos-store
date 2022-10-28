@@ -1,0 +1,83 @@
+@import '../../../assets/styles/colors';
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  margin: 80px 0 20px;
+
+  .button-prev {
+    border: none;
+    padding: 4px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(90deg);
+    background-color: $lake-thun-3;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $lake-thun;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $american-silver;
+    }
+  }
+
+  .list-page-number {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    background-color: $lake-thun-3;
+    border-radius: 50px;
+    padding: 0 16px;
+
+    .button-page {
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      background-color: transparent;
+      cursor: pointer;
+      color: $lazurite-blue;
+
+      &.active {
+        background-color: $lazurite-blue;
+        color: $white;
+      }
+    }
+  }
+
+  .button-next {
+    border: none;
+    padding: 4px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: $lake-thun-3;
+    cursor: pointer;
+    transform: rotate(270deg);
+
+    &:hover {
+      background-color: $lake-thun;
+      color: $white;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $american-silver;
+    }
+  }
+}

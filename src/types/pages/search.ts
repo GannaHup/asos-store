@@ -5,5 +5,7 @@ export interface SearchProps {
   priceMin: number
   priceMax: number
   sort: string
+  store: string
+  page: number
   productList?: ProductList
 }

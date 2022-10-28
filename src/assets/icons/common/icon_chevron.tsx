@@ -1,32 +1,36 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Icons } from "../type"
+import React from "react";
+import PropTypes from "prop-types";
+import { Icons } from "../type";
 
 const ChevronIcon = (props: Icons) => {
-  const { color } = props
+  const { color, width, height } = props;
   return (
     <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
+      width={width}
+      height={height}
+      viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M4.34981 7.26655C4.10573 7.51063 4.10573 7.90636 4.34981 8.15044L9.55814 13.3588C9.80222 13.6028 10.1979 13.6028 10.442 13.3588L15.6504 8.15044C15.8944 7.90636 15.8944 7.51063 15.6504 7.26655C15.4063 7.02248 15.0106 7.02248 14.7665 7.26655L10.0001 12.0329L5.23369 7.26655C4.98961 7.02248 4.59388 7.02248 4.34981 7.26655Z"
+        d="M8.69912 14.5326C8.21097 15.0208 8.21097 15.8122 8.69912 16.3004L19.1158 26.7171C19.6039 27.2052 20.3954 27.2052 20.8836 26.7171L31.3002 16.3004C31.7884 15.8122 31.7884 15.0208 31.3002 14.5326C30.8121 14.0445 30.0206 14.0445 29.5325 14.5326L19.9997 24.0654L10.4669 14.5326C9.97874 14.0445 9.18728 14.0445 8.69912 14.5326Z"
         fill={color}
       />
     </svg>
-  )
-}
+  );
+};
 
 ChevronIcon.propTypes = {
   color: PropTypes.string,
-}
+  width: PropTypes.number,
+  height: PropTypes.number
+};
 ChevronIcon.defaultProps = {
   color: "#24292F",
-}
+  width: 24,
+  height: 24
+};
 
-export default ChevronIcon
+export default ChevronIcon;
