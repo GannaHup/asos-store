@@ -54,7 +54,7 @@ export async function getServerSideProps(
     priceMin,
     priceMax,
     sort,
-    page: page || 1
+    offset: (page - 1) * 48
   })
 
   return {
