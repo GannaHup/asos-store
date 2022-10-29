@@ -6,5 +6,6 @@ export interface Options {
 export interface DropdownSelectProps {
   value: Options
   options: Options[]
+  customClass?: string
   onSelectOption?: (option: Options) => void
 }

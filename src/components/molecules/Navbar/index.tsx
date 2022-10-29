@@ -29,7 +29,7 @@ const Navbar = (props: NavbarProps) => {
         <Image
           src={AsosLogo}
           alt="Picture of the author"
-          width={130}
+          className="asos-logo"
         />
       </div>
       <div className="section-search">
@@ -48,7 +48,7 @@ const Navbar = (props: NavbarProps) => {
         </div>
         <div className="filter-button" onClick={onClickFilter}>
           <Icon name="filter" color="white" width={30} height={30} />
-          <span>Filter</span>
+          <span className="text-filter">Filter</span>
         </div>
       </div>
     </div>

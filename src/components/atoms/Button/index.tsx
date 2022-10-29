@@ -1,12 +1,19 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { ButtonProps } from "@/types/components/Button.type"
 import './style.scss'
 
 const Button = (props: ButtonProps) => {
-  const { text, onClick } = props
+  const { customClass, text, onClick } = props
+  const [wrapperClass, setWrapperClass] = useState('button')
+
+  useEffect(() => {
+    if (customClass) {
+      setWrapperClass(`button ${customClass}`)
+    }
+  }, [customClass])
 
   return (
-    <button className="button" onClick={onClick}>
+    <button className={wrapperClass} onClick={onClick}>
       {text}
     </button>
   )

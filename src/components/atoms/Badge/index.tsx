@@ -1,12 +1,20 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { BadgeProps } from "@/types/components/Badge.type"
 import './style.scss'
 
 const Badge = (props: BadgeProps) => {
-  const { text } = props
+  const { text, textClass } = props
+  const [customClass, setCustomClass] = useState('text-badge')
+
+  useEffect(() => {
+    if (textClass) {
+      setCustomClass(`text-badge ${textClass}`)
+    }
+  }, [textClass])
+
   return (
     <div className="badge">
-      <span className="text-badge">{text}</span>
+      <span className={customClass}>{text}</span>
     </div>
   )
 }

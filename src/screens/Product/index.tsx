@@ -40,8 +40,9 @@ const ProductScreen = () => {
           <Image
             src={currentImage || ""}
             alt={dataProductDetail.name || ""}
-            width={430}
-            height={540}
+            className="image-product"
+            fill
+            sizes="100%"
           />
           <div className="wrapper-variant-images">
             {dataProductDetail.images?.map(
@@ -55,8 +56,8 @@ const ProductScreen = () => {
                     <Image
                       src={`https://${image.url}`}
                       alt={image.type || ""}
-                      width={90}
-                      height={90}
+                      fill
+                      sizes="100%"
                       className={
                         currentImage.replace('https://', '') === image.url
                           ? "image-variant active"
@@ -90,12 +91,12 @@ const ProductScreen = () => {
             </span>
           </div>
 
-          <div className="info-field row">
+          <div className="info-field">
             <span className="title-info">Variants: </span>
             <div className="list-variant">
               {dataProductDetail.variants?.map(
                 (variant: ProductVariant, idx: number) => {
-                  return <Badge text={textBadge(variant)} key={idx} />;
+                  return <Badge text={textBadge(variant)} key={idx}textClass="variant" />;
                 }
               )}
             </div>

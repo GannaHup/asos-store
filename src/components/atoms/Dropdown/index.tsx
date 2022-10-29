@@ -1,11 +1,12 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Icon from "@/assets/icons"
 import { DropdownSelectProps, Options } from "@/types/components/Dropdown.type"
 import './style.scss'
 
 const DropdownSelect = (props: DropdownSelectProps) => {
-  const { value, options, onSelectOption } = props
+  const { value, options, customClass, onSelectOption } = props
   const [showOptions, setShowOptions] = useState(false)
+  const [wrapperClass, setWrapperClass] = useState('wrapper-dropdown-select')
 
   const onClick = () => {
     setShowOptions(prevState => !prevState)
@@ -16,8 +17,14 @@ const DropdownSelect = (props: DropdownSelectProps) => {
     setShowOptions(false)
   }
 
+  useEffect(() => {
+    if (customClass) {
+      setWrapperClass(`wrapper-dropdown-select ${customClass}`)
+    }
+  }, [customClass])
+
   return (
-    <div className="wrapper-dropdown-select">
+    <div className={wrapperClass}>
       <div
         className={showOptions ? 'dropdown-select active' : 'dropdown-select'}
         onClick={onClick}

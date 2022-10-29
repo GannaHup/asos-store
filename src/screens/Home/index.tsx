@@ -22,7 +22,7 @@ const HomeScreen = () => {
         <Image src={IllShopping} alt="Illustrations Shopping" className="illustration-shopping" />
         <div className="text-content">
           <div className="asos-title">
-            <Image src={AsosLogo} alt="Asos" width={66} className="asos-simple-logo" />
+            <Image src={AsosLogo} alt="Asos" className="asos-simple-logo" />
             <h2 className="title-text-content">SOS</h2>
           </div>
           <span className="tagline-text-content">Discover Fashion Online</span>

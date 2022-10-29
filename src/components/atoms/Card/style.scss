@@ -1,8 +1,8 @@
 @import '../../../assets/styles/colors';
 
 .card {
+  position: relative;
   padding: 10px;
-  max-width: 335px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -19,12 +19,16 @@
     -moz-box-shadow: 1px -1px 61px -9px #438fc28c;
   }
 
+  .image-card {
+    position: relative !important;
+  }
+
   .wrapper-info-card {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 8px;
+    gap: 16px;
 
     .name-card {
       color: $ash-to-ash;
@@ -38,6 +42,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: flex-end;
       margin-top: 10px;
 
       .info-price {
@@ -54,6 +59,79 @@
           color: $rhapsody-in-blue;
           font-weight: 500;
           font-size: 22px;
+        }
+      }
+
+      .brand-name {
+        text-align: right;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Screen <= 960px
+@media only screen and (max-width: 960px) {
+  .card {
+    box-shadow: 3px 3px 20px 2px rgba(219, 219, 219, 0.4);
+    border-radius: 10px;
+
+    .wrapper-info-card {
+
+      .info-card {
+
+        .info-price {
+
+          .new-price {
+            font-size: 20px;
+          }
+        }
+
+        .brand-name {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+// Screen <= 420px
+@media only screen and (max-width: 420px) {
+  .card {
+    gap: 4px;
+
+    .wrapper-info-card {
+      gap: 8px;
+
+      .name-card {
+        font-size: 14px;
+      }
+
+      .info-card {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .info-price {
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+
+          .old-price {
+            font-size: 12px;
+          }
+
+          .new-price {
+            font-size: 16px;
+          }
+        }
+
+        .brand-name {
+          width: 100%;
+          align-items: flex-start;
+          text-align: left;
+          font-size: 14px;
+          margin-bottom: 12px;
         }
       }
     }

@@ -39,7 +39,7 @@ const SearchScreen = (props: SearchProps) => {
   }
 
   return (
-    <div className="wrapper-home">
+    <div className="wrapper-search">
       {isLoading && (
         <div className="loading-state">
           <Icon name="loading-bubble" />

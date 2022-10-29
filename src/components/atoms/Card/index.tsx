@@ -8,11 +8,11 @@ const Card = (props: CardProps) => {
   return (
     <div className="card" onClick={onClick}>
       <Image
-        id="image-card"
+        className="image-card"
         src={`https://${data.imageUrl}`}
         alt={data.name || ''}
-        width={313}
-        height={400}
+        fill
+        sizes="100%"
       />
       <div className="wrapper-info-card">
         <p className="name-card">{data.name}</p>

@@ -18,7 +18,7 @@ const FilterSearch = (props: FilterSearchProps) => {
       <div className="section-filter">
         <div className="section-field-filter">
           <div className="field-input-label">
-            <span>Min Price</span>
+            <span className="label-input">Min Price</span>
             <TextInput
               type="number"
               placeholder="Min Price"
@@ -29,7 +29,7 @@ const FilterSearch = (props: FilterSearchProps) => {
           </div>
 
           <div className="field-input-label">
-            <span>Max Price</span>
+            <span className="label-input">Max Price</span>
             <TextInput
               type="number"
               placeholder="Max Price"
@@ -40,12 +40,17 @@ const FilterSearch = (props: FilterSearchProps) => {
           </div>
 
           <div className="field-input-label">
-            <span>Sort</span>
-            <DropdownSelect value={sort} options={OPTIONS_SORT_PRODUCT} onSelectOption={onSortProduct} />
+            <span className="label-input">Sort</span>
+            <DropdownSelect
+              value={sort}
+              options={OPTIONS_SORT_PRODUCT}
+              customClass="filter-input"
+              onSelectOption={onSortProduct}
+            />
           </div>
         </div>
-        <div>
-          <Button text="Search" onClick={onSearch} />
+        <div className="wrapper-button-search">
+          <Button text="Search" customClass="button-search" onClick={onSearch} />
         </div>
       </div>
     </div>
