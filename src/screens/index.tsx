@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { AppProps } from "next/app"
+import Head from 'next/head'
 import { useRouter } from 'next/router';
 import FilterSearch from "@/components/molecules/FilterSearch";
 import Navbar from "@/components/molecules/Navbar";
@@ -8,8 +9,8 @@ import { useAppDispatch } from "@/stores"
 import { setLoading } from '@/stores/actions/ProductAction';
 import { Options } from "@/types/components/Dropdown.type";
 import { serializeQuery } from "@/utils/serializeQuery";
-import './style.scss'
 import clearEmptyObject from "@/utils/clearEmptyObject";
+import './style.scss'
 
 const MainPage = ({ Component, pageProps }: AppProps) => {
   const { keyword, priceMin, priceMax, page } = pageProps
@@ -35,17 +36,19 @@ const MainPage = ({ Component, pageProps }: AppProps) => {
   };
 
   const onSearchProduct = () => {
-    dispatch(setLoading(true));
     const sortBy = filter.sort.value || "freshness";
-    if (pathname !== '/search') {
-      const params = clearEmptyObject({ ...filter, sort: sortBy })
-      router.push(`/search?${serializeQuery(params)}`)
-    } else {
-      router.replace({
-        query: clearEmptyObject({ ...filter, sort: sortBy }),
-      });
+    if (filter.q.trim()) {
+      dispatch(setLoading(true));
+      if (pathname !== '/search') {
+        const params = clearEmptyObject({ ...filter, sort: sortBy })
+        router.push(`/search?${serializeQuery(params)}`)
+      } else {
+        router.replace({
+          query: clearEmptyObject({ ...filter, sort: sortBy }),
+        });
+      }
+      setShowFilter(false)
     }
-    setShowFilter(false)
   };
 
   const onChangeInput = (value: string | number, key: string) => {
@@ -58,6 +61,11 @@ const MainPage = ({ Component, pageProps }: AppProps) => {
 
   return (
     <div className="main-wrapper">
+      <Head>
+        <title>ASOS Next Store</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
       {/* Navbar */}
       <Navbar
         value={filter.q}
